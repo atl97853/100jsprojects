@@ -32,6 +32,9 @@
             font-size: 50px;
             
         }
+        .num-container::selection {
+            background-color: transparent;
+        }
         .button {
             display: flex;
             justify-content: center;
@@ -44,12 +47,15 @@
         .button:hover {
             color: rgba(255, 255, 255, .7);
         }
+        .button::selection {
+            background-color: transparent;
+        }
     </style>
 </head>
 <body>
     <div class="main-container">
         <div class="sub button">-</div>
-        <div class="num-container">4</div>
+        <div class="num-container"></div>
         <div class="add button">+</div>
     </div>
     <script src="./script.js"></script>
