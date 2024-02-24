@@ -5,15 +5,54 @@ const addButton = document.querySelector('.add')
 
 // Basic functionality
 let num = 0
+
 subButton.addEventListener('click', () => {
-    console.log('clicked')
     num -= 1
     numbCont.textContent = `${num}`
+    passText = false
+    console.log(passText) //testing
 })
 
 addButton.addEventListener('click', () => {
-    console.log('clicked')
     num += 1
     numbCont.textContent = `${num}`
+    passText = false
+    console.log(passText) //testing
 })
+
+let passText = false
+numbCont.addEventListener('click', () => {
+    passText = true
+    console.log(passText) //testing
+
+    if (passText && newNumber.length >= 2) { //>= 3 ??
+        newNumber = ""
+    }
+})
+
+// addEventListener('keypress', ({ key }) => {
+//     if (passText && !isNaN(key)) {
+//         console.log(key)
+//         num = Number(key)
+//         numbCont.textContent = `${num}`
+//         passText = false
+//         console.log(passText) //testing
+//     }
+// })
+
+// need to input newNumber after press enter key
+let newNumber = '' //why it doesnt repeat zeros?????
+addEventListener('keypress', ({ key }) => {
+    if (passText && !isNaN(key) && newNumber.length <= 2) { //<= 3????
+        newNumber += key
+        console.log(newNumber)
+
+        num = Number(newNumber)
+        numbCont.textContent = `${num}`
+        // passText = false
+        // console.log(passText) //testing
+        console.log(newNumber.length)
+    }
+})
+
 
