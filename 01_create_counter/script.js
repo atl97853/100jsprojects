@@ -41,7 +41,7 @@ numbCont.addEventListener('click', () => {
 // })
 
 // need to input newNumber after press enter key
-let newNumber = '' //why it doesnt repeat zeros?????
+let newNumber = '' //why zeros doesnt repeat ?????
 addEventListener('keypress', ({ key }) => {
     if (passText && !isNaN(key) && newNumber.length <= 2) { //<= 3????
         newNumber += key
