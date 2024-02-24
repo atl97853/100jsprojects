@@ -9,6 +9,7 @@ let num = 0
 subButton.addEventListener('click', () => {
     num -= 1
     numbCont.textContent = `${num}`
+
     passText = false
     console.log(passText) //testing
 })
@@ -16,6 +17,7 @@ subButton.addEventListener('click', () => {
 addButton.addEventListener('click', () => {
     num += 1
     numbCont.textContent = `${num}`
+
     passText = false
     console.log(passText) //testing
 })
@@ -25,8 +27,8 @@ numbCont.addEventListener('click', () => {
     passText = true
     console.log(passText) //testing
 
-    if (passText && newNumber.length >= 2) { //>= 3 ??
-        newNumber = ""
+    if (passText) { //>= 3 ??
+        newNumber = ''
     }
 })
 
