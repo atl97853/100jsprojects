@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to-do</title>
+    <style>
+        body {
+            background: black;
+            color: white;
+        }
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .todo-element {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+        .status {
+            width: 10px;
+            height: 10px;
+            background: white;
+            margin-right: 10px; /* temporal */
+        }
+        .features-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+        .button-container {
+            width: 20px;
+            height: 20px;
+            padding: 5px;
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="date-container">March 09, 2020</div> 
+        <div class="tasks-status">5 incomplete, 5 completed</div>
+        <div class="todo-list">
+            <div class="todo-element">
+                <div class="status"></div>
+                <p>Upload 1099-R to TurboTax</p>
+            </div>
+            <div class="todo-element">
+                <div class="status"></div>
+                <p>Upload 1099-R to TurboTax</p>
+            </div>
+            <div class="todo-element">
+                <div class="status"></div>
+                <p>Upload 1099-R to TurboTax</p>
+            </div>
+            <div class="todo-element">
+                <div class="status"></div>
+                <p>Upload 1099-R to TurboTax</p>
+            </div>
+        </div>
+        <div class="features-container">
+            <div class="create-element button-container"><img src="./assets/plus.svg"></div>
+            <div class="remove-element button-container"><img src="./assets/trash.svg"></div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
