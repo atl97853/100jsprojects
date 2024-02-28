@@ -1,19 +1,13 @@
-const createElement = document.querySelector('.create-element')
-const removeElement = document.querySelector('.remove-element')
+const date = document.querySelector('.date-container')
+const taskStatus = document.querySelector('.taks-status')
+
+const arrayLists = document.querySelectorAll('.todo-list')
+const arraySubLists = document.querySelectorAll('.todo-sublist')
+
 const checkMark = document.querySelectorAll('.check-mark')
-
-createElement.addEventListener('click', () => {
-    console.log(createElement)
-})
-
-removeElement.addEventListener('click', () => {
-    console.log(removeElement)
-})
 
 checkMark.forEach((e) => {
     e.addEventListener('click', () => {
-        e.style.background = 'red'
-        console.log(e)
+        console.log('check mark was clicked')
     })
 })
-
