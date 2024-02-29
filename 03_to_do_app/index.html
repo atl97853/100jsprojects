@@ -60,39 +60,42 @@
     <div class="main-container">
         <div class="date-container">March 09, 2020</div> 
         <div class="tasks-status">5 incomplete, 5 completed</div>
+        <!-- this container has a gap between the inner elements  -->
+        <div class="todo-container parentElement"> 
+            <div class="todo-list"><p>something</p>
+                <div class="todo-sublist">
+                    <div class="check-mark"></div>
+                    <p>Upload 1099-R to TurboTax</p>
+                </div>
+                <div class="todo-sublist">
+                    <div class="check-mark"></div> 
+                    <p>Upload 1099-R to TurboTax</p>
+                </div>
+            </div>
 
-        <div class="todo-list"><p>something</p>
-            <div class="todo-sublist">
-                <div class="check-mark"></div>
-                <p>Upload 1099-R to TurboTax</p>
-            </div>
-            <div class="todo-sublist">
-                <div class="check-mark"></div> 
-                <p>Upload 1099-R to TurboTax</p>
-            </div>
+            <div class="todo-list"><p>something 2</p>
+                <div class="todo-sublist">
+                    <div class="check-mark"></div>
+                    <p>Upload 1099-R to TurboTax</p>
+                </div>
+                <div class="todo-sublist">
+                    <div class="check-mark"></div> 
+                    <p>Upload 1099-R to TurboTax</p>
+                </div>
+                <div class="todo-sublist">
+                    <div class="check-mark"></div>
+                    <p>Upload 1099-R to TurboTax</p>
+                </div>
+            </div>            
         </div>
-
-         <div class="todo-list"><p>something 2</p>
-            <div class="todo-sublist">
-                <div class="check-mark"></div>
-                <p>Upload 1099-R to TurboTax</p>
-            </div>
-            <div class="todo-sublist">
-                <div class="check-mark"></div> 
-                <p>Upload 1099-R to TurboTax</p>
-            </div>
-            <div class="todo-sublist">
-                <div class="check-mark"></div>
-                <p>Upload 1099-R to TurboTax</p>
-            </div>
-        </div>
-
-        <div class="features-container">
-            <div class="create button-container"><img src="./assets/plus.svg"></div>
-            <div class="remove button-container"><img src="./assets/trash.svg"></div>
+        <!-- i'd like to move this cointainers to an accessible place  -->
+        <div class="features-container"> 
+            <div class="create-element button-container"><img src="./assets/plus.svg"></div>
+            <div class="remove-element button-container"><img src="./assets/trash.svg"></div>
         </div>
     </div>
     
+    <script src="./classes.js"></script>
     <script src="./script.js"></script>
 </body>
 </html>
