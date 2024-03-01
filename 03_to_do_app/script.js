@@ -8,6 +8,13 @@ const arrayCheckMark = document.querySelectorAll('.check-mark')
 const createElement = document.querySelector('.create-element')
 const removeElement = document.querySelector('.remove-element')
 
+// clone block of code: // i think is better cloning the element // append them into a list and be able to remove all and create more, etc, add more functionalities as selection
+let parent = document.querySelector('#testParent')
+let elem = parent.querySelector('.todo-list')
+let clone = elem.cloneNode(true)
+let qwe = tasksStatus.parentNode
+qwe.insertBefore(clone, tasksStatus)
+// -------------------------------------------------------------------
 arrayCheckMark.forEach((e) => {
     e.addEventListener('click', () => {
         console.log('check mark was clicked')
@@ -17,7 +24,7 @@ arrayCheckMark.forEach((e) => {
 })
 
 let num = 0 //just for testing
-let arrayTodoNewDivs = []
+let arrayTodoNewDivs = [] // add limit to the number of objects 
 function createDiv() {
     // create a new div element, this could be a class with methods.
     const newDiv = document.createElement("div")
