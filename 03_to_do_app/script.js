@@ -8,13 +8,6 @@ const arrayCheckMark = document.querySelectorAll('.check-mark')
 const createElement = document.querySelector('.create-element')
 const removeElement = document.querySelector('.remove-element')
 
-// clone block of code: // i think is better cloning the element // append them into a list and be able to remove all and create more, etc, add more functionalities as selection
-let parent = document.querySelector('#testParent')
-let elem = parent.querySelector('.todo-list')
-let clone = elem.cloneNode(true)
-let qwe = tasksStatus.parentNode
-qwe.insertBefore(clone, tasksStatus)
-// -------------------------------------------------------------------
 arrayCheckMark.forEach((e) => {
     e.addEventListener('click', () => {
         console.log('check mark was clicked')
@@ -23,51 +16,65 @@ arrayCheckMark.forEach((e) => {
     })
 })
 
-let num = 0 //just for testing
-let arrayTodoNewDivs = [] // add limit to the number of objects 
-function createDiv() {
-    // create a new div element, this could be a class with methods.
-    const newDiv = document.createElement("div")
-    newDiv.style.background = 'white'
-    newDiv.style.color = 'black'
-    newDiv.style.width = '100px'
-    newDiv.style.height = '100px'
-    newDiv.textContent = num += 1
-    newDiv.testId = num
-    // insert element in the DOM 
-    let parentElement = tasksStatus.parentNode
-    parentElement.insertBefore(newDiv, tasksStatus.nextSibling)
-    // append the object to an array(list)
-    arrayTodoNewDivs.push(newDiv)
-    console.log(newDiv.testId) // add unique ID, just for testing
-}
+// let num = 0 //just for testing
+// let arrayTodoNewDivs = [] // add limit to the number of objects 
+// function createDiv() {
+//     // create a new div element, this could be a class with methods.
+//     const newDiv = document.createElement("div")
+//     newDiv.style.background = 'white'
+//     newDiv.style.color = 'black'
+//     newDiv.style.width = '100px'
+//     newDiv.style.height = '100px'
+//     newDiv.textContent = num += 1
+//     newDiv.testId = num
+//     // insert element in the DOM 
+//     let parentElement = tasksStatus.parentNode
+//     parentElement.insertBefore(newDiv, tasksStatus.nextSibling)
+//     // append the object to an array(list)
+//     arrayTodoNewDivs.push(newDiv)
+//     console.log(newDiv.testId) // add unique ID, just for testing
+// }
 
+// clone block of code: // i think is better cloning the element // append them into a list and be able to remove all and create more, etc, add more functionalities as selection
+let arrayTodoCloneBlock = []
+function cloneDiv() {
+    let parent = document.querySelector('#testParent')
+    let refElement = parent.querySelector('.todo-list')
+    let blockClone = refElement.cloneNode(true)
+    // insert parent in the DOM 
+    let refParent = parent.parentNode
+    refParent.insertBefore(blockClone, parent.nextSibling)
+    // append the object ton an array(list)
+    arrayTodoCloneBlock.push(blockClone)
+
+}
+// -------------------------------------------------------------------
 createElement.addEventListener('click', () => {
-    console.log('sup cutie')
-    createDiv()
+    // createDiv()
+    cloneDiv()
+    console.log(arrayTodoCloneBlock, 'new object was added')
 })
 
 const removeEvents = ['click', 'dblclick']
 
 removeEvents.forEach((event) => {
     removeElement.addEventListener(event, () => {
-        console.log('bye cutie')
-        // just for testing check the total of object in the array
-        console.log(arrayTodoNewDivs, 'before remove')
+        // just for testing check the total objects in the array
+        console.log(arrayTodoCloneBlock, 'before remove')
         switch (event) {
             case 'dblclick':
                 // remove all 
-                arrayTodoNewDivs.forEach((div) => {
-                    div.remove()
+                arrayTodoCloneBlock.forEach((block) => {
+                    block.remove()
                 })
-                arrayTodoNewDivs = []
-                console.log(arrayTodoNewDivs, 'afer remove') // just for testing
+                arrayTodoCloneBlock = []
+                console.log(arrayTodoCloneBlock, 'afer remove') // just for testing
                 break
             case 'click':
-                // remove last element of the array "arrayTodoNewDivs" // needs to debug to avoid errors, using a condition
-                arrayTodoNewDivs[arrayTodoNewDivs.length - 1].remove() // access to the last element of the array
-                arrayTodoNewDivs.pop()
-                console.log(arrayTodoNewDivs, 'afer remove') // just for testing
+                // remove last element of the array "arrayTodoCloneBlock" // needs to debug to avoid errors, using a condition
+                arrayTodoCloneBlock[arrayTodoCloneBlock.length - 1].remove() // access to the last element of the array
+                arrayTodoCloneBlock.pop()
+                console.log(arrayTodoCloneBlock, 'afer remove') // just for testing
                 break
         }
     })
