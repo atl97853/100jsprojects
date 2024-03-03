@@ -6,6 +6,10 @@
     <title>to-do</title>
     <style>
         body {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: baseline;
             background: black;
             color: white;
         }
@@ -60,29 +64,22 @@
     <div class="main-container">
         <div class="date-container">March 09, 2020</div> 
         <div class="tasks-status">5 incomplete, 5 completed</div>
-        <!-- this container has a gap between the inner elements  -->
-        <div id="testParent">
+
+        <div class="todo-main-container">
             <div class="todo-list"><p>something 2</p>
                 <div class="todo-sublist">
                     <div class="check-mark"></div>
                     <p>Upload 1099-R to TurboTax</p>
                 </div>
-                <!-- <div class="todo-sublist">
-                    <div class="check-mark"></div> 
-                    <p>Upload 1099-R to TurboTax</p>
-                </div>
-                <div class="todo-sublist">
-                    <div class="check-mark"></div>
-                    <p>Upload 1099-R to TurboTax</p>
-                </div> -->
             </div>            
         </div>
-        <!-- i'd like to move this cointainers to an accessible place  -->
-        <div class="features-container"> 
-            <div class="create-element button-container"><img src="./assets/plus.svg"></div>
-            <div class="remove-element button-container"><img src="./assets/trash.svg"></div>
-        </div>
     </div>
+        <!-- i'd like to move this cointainers to an accessible place  -->
+    <div class="features-container"> 
+        <div class="create-element button-container"><img src="./assets/plus.svg"></div>
+        <div class="remove-element button-container"><img src="./assets/trash.svg"></div>
+    </div>
+    
     
     <script src="./classes.js"></script>
     <script src="./script.js"></script>
