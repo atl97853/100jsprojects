@@ -9,31 +9,45 @@
             display: flex;
             flex-direction: row;
             justify-content: center;
-            align-items: baseline;
+            align-items: start;
             background: black;
-            color: white;
         }
         .main-container {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-        }
-        .todo-list {
-            font-weight: bold;
+            border: solid black 1px;
+            border-radius: 15px;
+            padding: 1.25rem;
+            gap: 10px;
             background: white;
             color: black;
         }
+        .header-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            font-weight: bold;
+        }
+        .tasks-status {
+            font-weight: 100;
+        }
+        .todo-list {
+            font-weight: bold;
+        }
         .todo-sublist {
+            margin: 0;
+            padding: 0;
             display: flex;
             flex-direction: row;
             justify-content: center;
             align-items: center;
         }
-        p:hover {
-            background: black;
+        .todo-list:hover, .text-sublist:hover {
+            background-color: black;
             color: white;
-            cursor: pointer;
         }
         .check-mark {
             width: 10px;
@@ -46,10 +60,15 @@
             background: gray;
         }
         .features-container {
+            margin: 10px;
             display: flex;
             flex-direction: row;
             justify-content: center;
             align-items: center;
+            border: solid black 1px;
+            border-radius: 15px;
+            padding: 0.25rem;
+            background: white;
         }
         .button-container {
             width: 20px;
@@ -62,19 +81,22 @@
 </head>
 <body>
     <div class="main-container">
-        <div class="date-container">March 09, 2020</div> 
-        <div class="tasks-status">5 incomplete, 5 completed</div>
-
-        <div class="todo-main-container">
-            <div class="todo-list"><p>something 2</p>
-                <div class="todo-sublist">
-                    <div class="check-mark"></div>
-                    <p>Upload 1099-R to TurboTax</p>
-                </div>
-            </div>            
+        <div class="header-container">
+            <div class="date-container">March 09, 2020</div> 
+            <div class="tasks-status">5 incomplete, 5 completed</div>
         </div>
+        <!-- ---- clone list  -->
+        <div class="todo-main-container">
+            <div class="todo-list">My projects</div> 
+            <!-- ---- clone sublist -->
+            <div class="todo-sublist"> 
+                <div class="check-mark"></div>
+                <div class="text-sublist">Upload 1099-R to TurboTax</div>
+            </div>
+        </div>
+
     </div>
-        <!-- i'd like to move this cointainers to an accessible place  -->
+    
     <div class="features-container"> 
         <div class="create-element button-container"><img src="./assets/plus.svg"></div>
         <div class="remove-element button-container"><img src="./assets/trash.svg"></div>
