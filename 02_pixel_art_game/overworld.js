@@ -7,5 +7,12 @@ class Overworld {
 
     init() {
         console.log('Hello from the Overworld', this)
+
+        const image = new Image()
+        image.onload = () => {
+            this.ctx.drawImage(image, 0, 0)
+
+        }
+        image.src = './asset_game/maps/DemoLower.png'
     }
 }
