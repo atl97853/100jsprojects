@@ -19,8 +19,14 @@
             width: 352px;
             height: 198px;
             margin: 0 auto;
-            margin-top: 20px;
+            /* margin-top: 20px; */
             outline: 1px solid #fff;
+
+            transform: scale(2) translateY(50%);
+        }
+
+        .game-container canvas {
+            image-rendering:  pixelated;
         }
     </style>
 </head>
@@ -31,6 +37,8 @@
 
     <!-- Scripts -->
     <script src="./overworld.js"></script>
+    <script src="./game_object.js"></script>
+    <script src="./sprite.js"></script>
     <script src="./init.js"></script>
 </body>
 </html>
