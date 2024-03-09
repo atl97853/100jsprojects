@@ -1,10 +1,17 @@
-const testParent = document.querySelector('.features-container')
+function cloneBlockCode() {
+    const node = document.querySelector('.todo-main-container')
+    const clone = node.cloneNode(true)
+    console.log(clone)
+    return clone
+}
+
+const testParent = document.querySelector('.todo-main-container')
 function createList() {
-    const newDiv = document.createElement("div")
+    const newDiv = cloneBlockCode()
     newDiv.style.background = 'white'
-    newDiv.style.color = 'black'
-    newDiv.style.width = '100px'
-    newDiv.style.height = '100px'
+    // newDiv.style.color = 'black'
+    // newDiv.style.width = '100px'
+    // newDiv.style.height = '100px'
     // insert element in the DOM
     let parentElement = testParent.parentNode
     parentElement.insertBefore(newDiv, testParent.nextSibling)
@@ -56,6 +63,16 @@ removelement.addEventListener('click', () => {
     todoSublistClick = false
 })
 
+
+const mainContainer = document.querySelector('.main-container')
+mainContainer.addEventListener('click', () => {
+    listElementsArray.forEach((element) => {
+        element.addEventListener('click', () => {
+            let text = prompt('write something: ')
+            element.textContent = text
+        })
+    })
+})
 // arrayCheckMark.forEach((e) => {
 //     e.addEventListener('click', () => {
 //         console.log('check mark was clicked')
