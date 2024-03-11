@@ -5,6 +5,10 @@ class Overworld {
         this.ctx = this.canvas.getContext('2d')
     }
 
+    startGameLoop() {
+
+    }
+
     init() {
         console.log('Hello from the Overworld', this)
 
