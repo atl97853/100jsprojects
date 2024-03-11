@@ -1,0 +1,5 @@
+class OverworldMap {
+    constructor() {
+
+    }
+}
