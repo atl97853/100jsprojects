@@ -1,17 +1,19 @@
+// variables 
+let listElementsArray = [] // i'm going to use this to store the new todo elements created 
+const firstElement = document.querySelector('.todo-sublist')
+listElementsArray.push(firstElement)
+
+
 function cloneBlockCode() {
-    const node = document.querySelector('.todo-main-container')
+    const node = document.querySelector('.todo-sublist') // this is the element that I'm going to clone
     const clone = node.cloneNode(true)
     console.log(clone)
     return clone
 }
-
-const testParent = document.querySelector('.todo-main-container')
 function createList() {
-    const newDiv = cloneBlockCode()
+    const testParent = document.querySelector('.todo-sublist') // the clone element is goint to be created below this parent element
+    const newDiv = cloneBlockCode() // this is the element that i'm going to "append"
     newDiv.style.background = 'white'
-    // newDiv.style.color = 'black'
-    // newDiv.style.width = '100px'
-    // newDiv.style.height = '100px'
     // insert element in the DOM
     let parentElement = testParent.parentNode
     parentElement.insertBefore(newDiv, testParent.nextSibling)
@@ -19,48 +21,16 @@ function createList() {
     listElementsArray.push(newDiv)
 }
 
-let todoListClick = false
-const todoList = document.querySelector('.todo-list')
-todoList.addEventListener('click', () => {
-    console.log('todoList')
-    todoListClick = true
-
-})
-
-
-let todoSublistClick = false
-const todoSublist = document.querySelector('.todo-sublist')
-todoSublist.addEventListener('click', () => {
-    console.log('todoSublist')
-    todoSublistClick = true
-
-})
-
-let listElementsArray = []
-let sublistElementsArray = []
 const createElement = document.querySelector('.create-element')
 createElement.addEventListener('click', () => {
-    if (todoListClick === true) {
-        createList()
-    } else if (todoSublistClick === true) {
-        createList()
-    }
-    todoListClick = false
-    todoSublistClick = false
+    createList()
 })
 
 const removelement = document.querySelector('.remove-element')
 removelement.addEventListener('click', () => {
-    if (todoListClick === true) {
-        createList()
-        listElementsArray.forEach((e) => {
-            e.remove()
-        })
-    } else if (todoSublistClick === true) {
-        createList()
-    }
-    todoListClick = false
-    todoSublistClick = false
+    listElementsArray.forEach((e) => {
+        e.remove()
+    })
 })
 
 
@@ -73,73 +43,3 @@ mainContainer.addEventListener('click', () => {
         })
     })
 })
-// arrayCheckMark.forEach((e) => {
-//     e.addEventListener('click', () => {
-//         console.log('check mark was clicked')
-//         // the clicks are going to change the color of the check mark,
-//         // the color are going to be, red, orange and green
-//     })
-// })
-
-// // let num = 0 //just for testing
-// // let arrayTodoNewDivs = [] // add limit to the number of objects
-// // function createDiv() {
-// //     // create a new div element, this could be a class with methods.
-// //     const newDiv = document.createElement("div")
-// //     newDiv.style.background = 'white'
-// //     newDiv.style.color = 'black'
-// //     newDiv.style.width = '100px'
-// //     newDiv.style.height = '100px'
-// //     newDiv.textContent = num += 1
-// //     newDiv.testId = num
-// //     // insert element in the DOM
-// //     let parentElement = tasksStatus.parentNode
-// //     parentElement.insertBefore(newDiv, tasksStatus.nextSibling)
-// //     // append the object to an array(list)
-// //     arrayTodoNewDivs.push(newDiv)
-// //     console.log(newDiv.testId) // add unique ID, just for testing
-// // }
-
-// // clone block of code: // i think is better cloning the element // append them into a list and be able to remove all and create more, etc, add more functionalities as selection
-// let arrayTodoCloneBlock = []
-// function cloneDiv() {
-//     let parent = document.querySelector('.todo-main-container')
-//     let refElement = parent.querySelector('.todo-sublist')
-//     let blockClone = refElement.cloneNode(true)
-//     // insert parent in the DOM
-//     let refParent = parent.parentNode
-//     refParent.insertBefore(blockClone, parent.nextSibling)
-//     // append the object in a list
-//     arrayTodoCloneBlock.push(blockClone)
-
-// }
-// // -------------------------------------------------------------------
-// createElement.addEventListener('click', () => {
-//     cloneDiv()
-//     console.log(arrayTodoCloneBlock, 'new object was added')
-// })
-
-// const removeEvents = ['click', 'dblclick']
-// removeEvents.forEach((event) => {
-//     removeElement.addEventListener(event, () => {
-//         // just for testing check the total objects in the array
-//         console.log(arrayTodoCloneBlock, 'before remove')
-//         switch (event) {
-//             case 'dblclick':
-//                 // remove all
-//                 arrayTodoCloneBlock.forEach((block) => {
-//                     block.remove()
-//                 })
-//                 arrayTodoCloneBlock = []
-//                 console.log(arrayTodoCloneBlock, 'afer remove') // just for testing
-//                 break
-//             case 'click':
-//                 // remove last element of the array "arrayTodoCloneBlock" // needs to debug to avoid errors, using a condition
-//                 arrayTodoCloneBlock[arrayTodoCloneBlock.length - 1].remove() // access to the last element of the array
-//                 arrayTodoCloneBlock.pop()
-//                 console.log(arrayTodoCloneBlock, 'afer remove') // just for testing
-//                 break
-//         }
-//     })
-// })
-
