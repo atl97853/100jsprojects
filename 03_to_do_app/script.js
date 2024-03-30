@@ -1,6 +1,8 @@
 // variables and array
-const newTodoDoRef = document.querySelector('.todo-sublist')
+const mainContainer = document.querySelector('.main-container')
+const newTodoDoRef = document.querySelector('.todo-element')
 let listNewTodo = []
+let indexTodoElement
 
 // buttons
 const createElement = document.querySelector('.create-element') // add button
@@ -18,7 +20,7 @@ console.log(listNewTodo) //just for testing
 
 function cloneBlockCode() {
     const cloneTodoElement = newTodoDoRef.cloneNode(true)
-    console.log('a new todo element was cloned', cloneTodoElement) //just for testing
+    // console.log('a new todo element was cloned', cloneTodoElement) //just for testing
     return cloneTodoElement
 }
 function appendTodoElementDOM() {
@@ -30,22 +32,34 @@ function appendTodoElementDOM() {
     parentElementPosition.insertBefore(newCloneTodoElement, parentElement.nextSibling)
     // append the object to an array(list)
     listNewTodo.push(newCloneTodoElement)
+    console.log('a new todo element was appended into the DOM')
     console.log(listNewTodo)
 }
 
 // eventlisteners
-
 createElement.addEventListener('click', () => {
     appendTodoElementDOM()
-    console.log('a new todo element was appended into the DOM')
+
 })
 
-removelement.addEventListener('click', () => {
+// element individual click selection 
+mainContainer.addEventListener('click', () => {
     listNewTodo.forEach(todoElement => {
-        todoElement.remove()
-        // listNewTodo.pop(todoElement)
-        console.log(listNewTodo)
+        todoElement.addEventListener('click', () => {
+            todoElement.style.background = 'black'
+            todoElement.style.color = 'white'
+            indexTodoElement = listNewTodo.indexOf(todoElement) // get individual index element
+            console.log('a todo element was selected', todoElement, 'this is the index', indexTodoElement)
+        })
     })
+})
+
+// remove element by index
+removelement.addEventListener('click', () => {
+    // console.log(listNewTodo[indexTodoElement])
+    listNewTodo[indexTodoElement].remove() // remove from DOM 
+    listNewTodo.splice(indexTodoElement, 1) // remove from list
+    console.log('a todo element was removed', listNewTodo) // just for testing
     // if (todoSelected === true) {
     //     e.remove()
     //     todoSelected = false
