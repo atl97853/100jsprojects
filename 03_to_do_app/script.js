@@ -3,21 +3,17 @@ const mainContainer = document.querySelector('.main-container')
 const newTodoDoRef = document.querySelector('.todo-element')
 let listNewTodo = []
 let indexTodoElement
+let todoElementSelected = false
 
 // buttons
 const createElement = document.querySelector('.create-element') // add button
 const removelement = document.querySelector('.remove-element') // remove button
 
+// init
 listNewTodo.push(newTodoDoRef)
 console.log(listNewTodo) //just for testing
 
-// const firstElement = document.querySelector('.todo-sublist')
-// listElementsArray.push(firstElement) // there is a bug here, afte deleting all the elements in the array i can't create a new "todo element"
-// // element selection
-// let todoSelected = false
-
 // functions 
-
 function cloneBlockCode() {
     const cloneTodoElement = newTodoDoRef.cloneNode(true)
     // console.log('a new todo element was cloned', cloneTodoElement) //just for testing
@@ -39,33 +35,51 @@ function appendTodoElementDOM() {
 // eventlisteners
 createElement.addEventListener('click', () => {
     appendTodoElementDOM()
-
 })
 
-// element individual click selection 
+// element clic selection 
 mainContainer.addEventListener('click', () => {
     listNewTodo.forEach(todoElement => {
+        // console.log(todoElement)
         todoElement.addEventListener('click', () => {
+
+            // cancel last selection
+            listNewTodo.forEach(todoElement => {
+                todoElement.style.background = 'white'
+                todoElement.style.color = 'black'
+            })
+            // cancel last selection
+
+            todoElementSelected = true // true selection element
+            console.log(todoElementSelected) // selection testing
+
             todoElement.style.background = 'black'
             todoElement.style.color = 'white'
             indexTodoElement = listNewTodo.indexOf(todoElement) // get individual index element
-            console.log('a todo element was selected', todoElement, 'this is the index', indexTodoElement)
+            // console.log('a todo element was selected', todoElement, 'this is the index', indexTodoElement)
         })
+        // todoElement.addEventListener('dblclick', () => {
+        //     todoElement.style.background = 'black'
+        //     todoElement.style.color = 'white'
+        // })
     })
 })
 
 // remove element by index
 removelement.addEventListener('click', () => {
     // console.log(listNewTodo[indexTodoElement])
-    listNewTodo[indexTodoElement].remove() // remove from DOM 
-    listNewTodo.splice(indexTodoElement, 1) // remove from list
-    console.log('a todo element was removed', listNewTodo) // just for testing
-    // if (todoSelected === true) {
-    //     e.remove()
-    //     todoSelected = false
-    //     console.log(todoSelected)
-    // }
+    if (todoElementSelected === true) {
+        listNewTodo[indexTodoElement].remove() // remove from DOM 
+        listNewTodo.splice(indexTodoElement, 1) // remove from list
+        indexTodoElement = undefined // debugging
+        todoElementSelected = false
+        console.log('a todo element was removed', listNewTodo) // just for testing
+    }
+    console.log(todoElementSelected) // selection testing
 })
+
+
+
 
 // // maybe get the index of the element selected, and with that index delete the item
 // const mainContainer = document.querySelector('.main-container')
@@ -81,10 +95,3 @@ removelement.addEventListener('click', () => {
 //         })
 //     })
 // })
-
-
-// ---- element selection
-// listNewTodo.forEach((todoElement) => {
-//     todoElement.addEventListener('click', () => {
-//         listNewTodo = []
-//     })
