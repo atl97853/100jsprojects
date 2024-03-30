@@ -7,7 +7,7 @@ let todoElementSelected = false
 
 // buttons
 const createElement = document.querySelector('.create-element') // add button
-const removelement = document.querySelector('.remove-element') // remove button
+const removElement = document.querySelector('.remove-element') // remove button
 
 // init
 listNewTodo.push(newTodoDoRef)
@@ -47,7 +47,7 @@ createElement.addEventListener('click', () => {
 mainContainer.addEventListener('click', () => {
     listNewTodo.forEach(todoElement => {
         // console.log(todoElement)
-        todoElement.addEventListener('click', () => {
+        todoElement.addEventListener('click', () => { // single clic
 
             // cancel last selection
             listNewTodo.forEach(todoElement => {
@@ -64,17 +64,22 @@ mainContainer.addEventListener('click', () => {
             indexTodoElement = listNewTodo.indexOf(todoElement) // get individual index element
             // console.log('a todo element was selected', todoElement, 'this is the index', indexTodoElement)
         })
-        todoElement.addEventListener('dblclick', () => {
-            console.log('SUUUUUUUU')
+        todoElement.addEventListener('dblclick', () => { // double clic
+            console.log('SUUUUUUUU') // testing functionality
             todoElement.textContent = getText()
             todoElement.style.background = 'white'
             todoElement.style.color = 'black'
+
+            // cancel selection
+            indexTodoElement = undefined // debugging
+            todoElementSelected = false
+            // cancel selection
         })
     })
 })
 
 // remove element by index
-removelement.addEventListener('click', () => {
+removElement.addEventListener('click', () => {
     // console.log(listNewTodo[indexTodoElement])
     if (todoElementSelected === true) {
         listNewTodo[indexTodoElement].remove() // remove from DOM 
@@ -85,7 +90,6 @@ removelement.addEventListener('click', () => {
     }
     console.log(todoElementSelected) // selection testing
 })
-
 
 
 
