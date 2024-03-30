@@ -13,7 +13,13 @@ const removelement = document.querySelector('.remove-element') // remove button
 listNewTodo.push(newTodoDoRef)
 console.log(listNewTodo) //just for testing
 
-// functions 
+// functions
+function getText() { // prototype function, modify later
+    // input text
+    const inputTextContent = document.querySelector('#input-text-todo').value // text input for todo taks
+    return inputTextContent
+}
+
 function cloneBlockCode() {
     const cloneTodoElement = newTodoDoRef.cloneNode(true)
     // console.log('a new todo element was cloned', cloneTodoElement) //just for testing
@@ -58,10 +64,12 @@ mainContainer.addEventListener('click', () => {
             indexTodoElement = listNewTodo.indexOf(todoElement) // get individual index element
             // console.log('a todo element was selected', todoElement, 'this is the index', indexTodoElement)
         })
-        // todoElement.addEventListener('dblclick', () => {
-        //     todoElement.style.background = 'black'
-        //     todoElement.style.color = 'white'
-        // })
+        todoElement.addEventListener('dblclick', () => {
+            console.log('SUUUUUUUU')
+            todoElement.textContent = getText()
+            todoElement.style.background = 'white'
+            todoElement.style.color = 'black'
+        })
     })
 })
 
@@ -81,17 +89,3 @@ removelement.addEventListener('click', () => {
 
 
 
-// // maybe get the index of the element selected, and with that index delete the item
-// const mainContainer = document.querySelector('.main-container')
-// mainContainer.addEventListener('click', () => {
-//     listElementsArray.forEach((element) => {
-//         element.addEventListener('click', () => {
-//             element.style.background = 'black'
-//             element.style.color = 'white'
-//             todoSelected = true
-//             console.log(todoSelected)
-//             // let text = prompt('write something: ')
-//             // element.textContent = text
-//         })
-//     })
-// })
