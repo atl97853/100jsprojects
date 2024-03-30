@@ -1,3 +1,16 @@
+// date 
+const dateContainer = document.querySelector('.date-container')
+const date = new Date()
+
+const day = date.getDate()
+const month = date.getMonth() + 1
+const year = date.getFullYear()
+
+let currentDate = `${day}/${month}/${year}`;
+dateContainer.textContent = currentDate
+console.log(currentDate)
+
+
 // variables and array
 const mainContainer = document.querySelector('.main-container')
 const newTodoDoRef = document.querySelector('.todo-element')
